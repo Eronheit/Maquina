@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title>
+      Alocações
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button *ngIf="(alocacoes | async)?.length" class="apagarT" ion-button block color="danger" (click)="removeTodos()">
+      Apagar tudo
+    </button>
+    <h3 *ngIf="!(alocacoes | async)?.length">Ainda não há alocações</h3>
+    <ion-item-sliding center *ngFor="let alocacao of alocacoes | async">
+      <ion-item>
+        <h1>{{ alocacao.local }}</h1>
+        <h2>Máquina: {{ alocacao.nome }}</h2>
+        <p>Data de saída: {{ alocacao.dataS }}</p>
+        <p>data de entrada: {{ alocacao.dataE }}</p>
+        <p>Quantidade de horas: {{ alocacao.qntH }}</p>
+        <p>Tipo de alocação: {{ alocacao.tipo }}</p>
+        <p>Valor total: R$ {{ alocacao.total }}</p>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="danger" (click)="removeAlocacao(alocacao.key)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+ 

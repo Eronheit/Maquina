@@ -1,0 +1,46 @@
+<body>
+  
+  <ion-content scroll='false'>
+    <ion-grid class='container'>
+    <ion-grid class="box">
+      <ion-row justify-content-center align-items-center>
+        <ion-grid>
+          <form #form="ngForm" novalidate>
+            <ion-row align-items-center>
+              <ion-col>
+                <img src='/assets/imgs/logo.png' width='200px' height='200px'>
+              </ion-col>   
+            </ion-row>
+            
+            <ion-row>
+              <ion-col>
+                <ion-list inset>
+                  <ion-item>
+                    <ion-input placeholder='email@example.com' name='username' id='loginField' type='email' required [(ngModel)]='user.email'></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input placeholder='senha' name='password' id='passwordField' type='password' required [(ngModel)]='user.password'></ion-input>
+                    <button ion-button><ion-icon name="eye-off"></ion-icon></button>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <button class="entrar" ion-button block [disabled]="!form.form.valid" (click)="signIn()">
+                  Entrar
+                </button>
+                
+                <div text-center class="esqueciS" (click)="resetPassword()">Esqueci minha senha</div>
+              </ion-col>
+            </ion-row>
+          </form>
+          <button class="criarC" ion-button block (click)="createAccount()">
+              Criar conta
+            </button>
+        </ion-grid>
+      </ion-row>
+    </ion-grid>
+    </ion-grid>
+  </ion-content>
+  </body>

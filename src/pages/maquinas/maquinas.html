@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title>
+      Máquinas
+    </ion-title>
+    <a class="sair" (click)="signOut()">
+      SAIR
+    </a>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item-sliding *ngFor="let maquina of maquinas | async">
+          <ion-item>
+            <h1>{{ maquina.nome }}</h1>
+            <p>Valor sem nota fiscal: R$ {{ maquina.valorSN }}</p>
+            <p>Valor com nota fiscal: R$ {{ maquina.valorCN }}</p>
+          </ion-item>
+    
+          <ion-item-options side="left">
+            <button ion-button color="secondary" (click)="editMaquina(maquina)">
+              <ion-icon name="create"></ion-icon>
+            </button>
+            <button ion-button color="danger" (click)="removeMaquina(maquina.key)">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+
+  <ion-fab bottom right>
+    <button ion-fab color='primary' (click)='newMaquina()'>
+      <ion-icon name='add'></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

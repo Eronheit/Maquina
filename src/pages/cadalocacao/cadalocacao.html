@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title>Cadastrar Alocação</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <form [formGroup]='form'>
+
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type='text' formControlName='nome' disabled='true'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.nome.valid && (form.controls.nome.dirty || form.controls.nome.touched)" color='danger'>
+      <div [hidden]="!form.controls.nome.errors.required"> 
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Valor sem nota fiscal</ion-label>
+      <ion-input type='tel' formControlName='valorSN' disabled='true'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.valorSN.valid && (form.controls.valorSN.dirty || form.controls.valorSN.touched)" color='danger'>
+      <div [hidden]="!form.controls.valorSN.errors.required"> 
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Valor com nota fiscal</ion-label>
+      <input type="text">
+      <ion-input type='tel' formControlName='valorCN' disabled='true'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.valorCN.valid && (form.controls.valorCN.dirty || form.controls.valorCN.touched)" color='danger'>
+      <div [hidden]="!form.controls.valorCN.errors.required"> 
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>  
+        <ion-label stacked>Local</ion-label>
+        <ion-input type='text' [(ngModel)]='local' formControlName='local'></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!form.controls.local.valid && (form.controls.local.dirty || form.controls.local.touched)" color='danger'>
+        <div [hidden]="!form.controls.local.errors.required"> 
+          O campo é obrigatório
+        </div>
+      </ion-item>
+
+    <ion-item>  
+      <ion-label stacked>Data de saída</ion-label>
+      <ion-input type='date' [(ngModel)]='dataS' formControlName='dataS'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.dataS.valid && (form.controls.dataS.dirty || form.controls.dataS.touched)" color='danger'>
+      <div [hidden]="!form.controls.dataS.errors.required"> 
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Data de entrada</ion-label>
+      <ion-input type='date' [(ngModel)]='dataE' formControlName='dataE'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.dataE.valid && (form.controls.dataE.dirty || form.controls.dataE.touched)" color='danger'>
+      <div [hidden]="!form.controls.dataE.errors.required"> 
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Pagamento</ion-label>
+            <ion-select [(ngModel)]='tipo' formControlName='tipo' required>
+              <ion-option  value="comNota">Com nota</ion-option>
+              <ion-option  value="semNota">Sem Nota</ion-option>
+            </ion-select>
+      </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Quantidade de horas</ion-label>
+      <ion-input type='tel' [(ngModel)]='qntH' formControlName='qntH'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.qntH.valid && (form.controls.qntH.dirty || form.controls.qntH.touched)" color='danger'>
+      <div [hidden]="!form.controls.qntH.errors.required"> 
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <div padding>
+        <button ion-button block type='submit' [disabled]="!form.valid" (click)='onSubmit()'>Salvar</button>
+      </div>
+  </form>
+</ion-content>
+

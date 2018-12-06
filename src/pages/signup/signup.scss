@@ -1,0 +1,45 @@
+page-signup {
+    .container{
+        background: url('../../assets/imgs/agricultura.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center
+    }
+
+    .box {
+        border-radius: 10px;
+        opacity: 0.8;
+        text-align: center;
+        background-color: white;
+
+        width: 400px;
+        height: 400px;
+     }
+
+     .login-logo{
+         vertical-align: center;
+         text-align: center;
+     }
+     
+     .login-form{
+         opacity: none!important;
+     }
+
+     body{
+         margin: 0px;
+     }
+
+     button.cadastrar{
+        margin-top: 15px; 
+        height: 35px; 
+        font-size: 14px; 
+        background: #10ABF4
+     }
+}
