@@ -20,6 +20,7 @@ export class CadalocacaoPage {
   dataE
   tipo
   local
+  t
 
   constructor(
     public navCtrl: NavController,
@@ -58,17 +59,17 @@ export class CadalocacaoPage {
 
   onSubmit(){
     if(this.tipo == 'comNota'){
-      var t : any = this.qntH * parseFloat(this.maquinas.valorCN);
-      var tipo = 'Com nota';
+      this.t = this.qntH * parseFloat(this.maquinas.valorCN);
+      this.tipo = 'Com nota';
     }
     else{
-      var t : any = this.qntH * parseFloat(this.maquinas.valorSN);
-      var tipo = 'Sem nota';
+      this.t = this.qntH * parseFloat(this.maquinas.valorSN);
+      this.tipo = 'Sem nota';
     }
     console.log(this.tipo)
 
     if(this.form.valid){
-      this.provider.save({ nome:this.maquinas.nome, tipo: tipo, local: this.local, dataS: this.dataS, dataE: this.dataE, qntH: this.qntH, total: t.toFixed(2) })
+      this.provider.save({ nome:this.maquinas.nome, tipo: this.tipo, local: this.local, dataS: this.dataS, dataE: this.dataE, qntH: this.qntH, total: this.t.toFixed(2) })
       .then(() => {
         this.toast.create({ message: 'Alocação salva com sucesso.', duration: 3000 }).present();
         this.navCtrl.pop();

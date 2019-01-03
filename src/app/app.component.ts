@@ -19,12 +19,14 @@ export class MyApp {
     splashScreen: SplashScreen,
   ){
 
-    var admin = 'mEKZHFf71ThRrlpPP60JWbZV2NC3';
+    var admin1 = 'mEKZHFf71ThRrlpPP60JWbZV2NC3';
+    var admin2 = 'crgzghXSqnVGtI7vCJWtuOa7ahg2';
+    var admin3 = 'upzDn7GUMxVeCZzh5fGz3Dikv2O2';
 
     if(window.localStorage.getItem('token') == '' || window.localStorage.getItem('token') == null){
       this.rootPage = SigninPage;
     }
-    else if(window.localStorage.getItem('token') == admin){
+    else if((window.localStorage.getItem('token') == admin1) || (window.localStorage.getItem('token') == admin2) || (window.localStorage.getItem('token') == admin3)){
       this.rootPage = TabsPage;
     }
     else{

@@ -5,7 +5,6 @@ import { NgForm } from '@angular/forms';
 import { User } from '../../providers/auth/user';
 import { AuthService } from '../../providers/auth/auth-service';
 import { TabsPage } from '../tabs/tabs';
-import { AlocacoesPage } from '../alocacoes/alocacoes';
 import { AlocacoesuserPage } from '../alocacoesuser/alocacoesuser';
 import { SignupPage } from '../signup/signup';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
@@ -44,9 +43,11 @@ export class SigninPage {
       });
       loader.present();
       this.authService.signIn(this.user).then(response => {
-        var admin = 'mEKZHFf71ThRrlpPP60JWbZV2NC3';
+        var admin1 = 'mEKZHFf71ThRrlpPP60JWbZV2NC3';
+        var admin2 = 'crgzghXSqnVGtI7vCJWtuOa7ahg2';
+        var admin3 = 'upzDn7GUMxVeCZzh5fGz3Dikv2O2';
         window.localStorage.setItem('token', response.uid);
-        if(response.uid ==  admin){
+        if((response.uid ==  admin1) || (response.uid ==  admin2) || (response.uid ==  admin3)){
           this.navCtrl.setRoot(TabsPage);
         }
         else{

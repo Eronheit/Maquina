@@ -6,7 +6,7 @@
 
 <ion-content padding> 
   <ion-list>
-    <ion-item-sliding center *ngFor="let maquina of maquinas | async">
+    <ion-item-sliding *ngFor="let maquina of maquinas | async">
       <ion-item>
         <h1>{{ maquina.nome }}</h1>
         <p>Valor sem nota fiscal: R$ {{ maquina.valorSN }}</p>
